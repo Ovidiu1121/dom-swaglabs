@@ -67,7 +67,9 @@ function attachCards(products) {
 }
 
 function setPage() {
+
     attachCards(cart);
+
 }
 
 function findCardByName(name) {
@@ -146,8 +148,6 @@ function resetCard(name) {
     </section>
 </section>`;
     }
-
-    cart.remove(name);
 
 }
 
