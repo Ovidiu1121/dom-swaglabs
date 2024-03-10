@@ -3,8 +3,8 @@ function attachMainPage() {
     let container = document.querySelector(".container");
 
     container.innerHTML = `
-    <header class="header-container">
-        <button class="menu"><i class="gg-menu"></i></button>
+    <header class="header-container">   
+        <button class="btn btn-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i class="gg-menu"></i></button>
         <h1 class="header-title">SWAGLABS</h1>
         <button class="btncart" style="font-size:24px"> <i class="fa fa-shopping-cart"></i></button>
     </header>
@@ -29,6 +29,17 @@ function attachMainPage() {
     <div class="terms">&copy; 2020 Sauce Labs. All Rights Reserved. Terms of Service | Privacy Policy</div>
     <img class="footer-img" src="images/SwagBot_Footer_graphic.png">
 </footer>
+
+<div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+  <div class="offcanvas-header">
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+  <div class="offcanvas-body">
+  <button class="menu-choice btn-allitems">All items</button>
+  <button class="menu-choice btn-logout">Logout</button>
+  </div>
+</div>
+
     `
     attachCardsProductPage();
     buttonStage();
@@ -52,10 +63,20 @@ function attachMainPage() {
         }
     });
 
+    let btnallitems = document.querySelector(".btn-allitems");
+
+    btnallitems.addEventListener("click", () => {
+        attachMainPage();
+    });
+
+    let btnlogout = document.querySelector(".btn-logout");
+
+    btnlogout.addEventListener("click", () => {
+        attachLoginPage();
+    });
+
     btncart.addEventListener("click", () => {
-
         attachCarPage();
-
     });
 
 
